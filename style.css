@@ -291,8 +291,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   background: var(--bg-2);
 }
 
-/* Show fallback if image fails */
-.hero-photo img[src="images/profile.jpg"]:not([complete]) + .photo-fallback,
+/* Show fallback only when JS adds .no-photo on image error */
 .hero-photo.no-photo .photo-fallback { display: flex; }
 
 .hero-photo-orbit {

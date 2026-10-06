@@ -61,7 +61,8 @@
       <div class="hero-photo-wrap">
         <div class="hero-photo-ring"></div>
         <div class="hero-photo" id="hero-photo-slot">
-          <img src="images/profile.jpg" alt="K.M. Mynurdoza" id="hero-img" />
+          <img src="images/profile.jpg" alt="K.M. Mynurdoza" id="hero-img"
+               onerror="this.style.display='none';this.parentElement.classList.add('no-photo')" />
           <div class="photo-fallback"><span>KM</span></div>
         </div>
         <div class="hero-photo-orbit"></div>
