@@ -160,51 +160,6 @@
 
 
 
-// ================================================================
-// CONTACT FORM
-// ================================================================
-(function initContactForm() {
-  const form   = document.getElementById('contact-form');
-  const status = document.getElementById('form-status');
-  const btn    = document.getElementById('contact-submit');
-  if (!form) return;
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    const action = form.getAttribute('action');
-    if (action.includes('YOUR_FORM_ID')) {
-      status.textContent = '⚠️ Please set up Formspree: replace YOUR_FORM_ID in index.html with your endpoint.';
-      status.className = 'form-note error';
-      return;
-    }
-
-    btn.disabled = true;
-    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending…';
-
-    try {
-      const res = await fetch(action, {
-        method: 'POST',
-        headers: { 'Accept': 'application/json' },
-        body: new FormData(form),
-      });
-
-      if (res.ok) {
-        status.textContent = '✓ Message sent! I'll get back to you soon.';
-        status.className = 'form-note success';
-        form.reset();
-      } else {
-        throw new Error('Network error');
-      }
-    } catch {
-      status.textContent = '✕ Something went wrong. Please email me directly.';
-      status.className = 'form-note error';
-    }
-
-    btn.disabled = false;
-    btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send Message';
-  });
-})();
 
 
 // ================================================================
